@@ -1,8 +1,21 @@
+function licenseBadge(license) {
+   switch (license) {
+      case "MIT":
+         return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+      case "Apache LIcense 2.0":
+         return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+      case "ISC":
+         return "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)"
+      default:
+         return ""
+   }
+}
+
 function renderLicenseBadge(license, name, year) {
-  let licenseContent; 
-  switch (license) {
-    case "MIT":
-      licenseContent = `MIT License
+   let licenseContent;
+   switch (license) {
+      case "MIT":
+         licenseContent = `MIT License
 
       Copyright (c) ${year} ${name}
       
@@ -24,9 +37,9 @@ function renderLicenseBadge(license, name, year) {
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
       SOFTWARE.`
 
-      break;
-    case "Apache LIcense 2.0":
-    licenseContent = `                                 Apache License
+         break;
+      case "Apache LIcense 2.0":
+         licenseContent = `                                 Apache License
                            Version 2.0, January 2004
                         [http://www.apache.org/licenses/]{http://www.apache.org/licenses/}
 
@@ -202,9 +215,9 @@ function renderLicenseBadge(license, name, year) {
       of your accepting any such warranty or additional liability.
       
       Copyright ${data.year} ${data.name}`
-      break;
-    case "ISC":
-        licenseContent = `ISC License
+         break;
+      case "ISC":
+         licenseContent = `ISC License
 
         Copyright (c) ${data.year} ${data.name}
         
@@ -219,17 +232,17 @@ function renderLicenseBadge(license, name, year) {
         LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
         OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
         PERFORMANCE OF THIS SOFTWARE.`
-      break;
-    default: licenseContent = "No License"
-      break;
-  }
-  return licenseContent;
+         break;
+      default: licenseContent = "No License"
+         break;
+   }
+   return licenseContent;
 
 }
 
 function generateMarkdown(data) {
-  return `# ${data.title}
-
+   return `# ${data.title}
+${licenseBadge(data.license)}
 ## Description
 
 ${data.description}
@@ -260,7 +273,17 @@ ${renderLicenseBadge(data.license, data.name, data.year)}
 ## How to Contribute
 
 ${data.contribution}
-`;
+
+## Tests
+
+${data.test}
+
+## Questions
+
+If you have any questions you can contact me here:
+Github: [https://github.com/${data.github}](https://github.com/${data.github})
+
+Email: ${data.email}`;
 }
 
 module.exports = generateMarkdown;

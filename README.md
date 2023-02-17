@@ -5,8 +5,9 @@
 This project will prompt the user a few times and generate a README file based on what was entered.
 
 ## Installation
+View a video on how to instal and use [here]{}
 
-This project requires NodeJs in order to run, since it is a console program. After Node is installed, download the project to your computer and navigate to the directory in a console. Then run 'node index.js' to get started. Once you have answered all the prompts, the generated README file will be in the 'output' folder.
+This project requires NodeJs in order to run, since it is a console program. After Node is installed, download the project to your computer and navigate to the directory in a console. Use the command 'npm instal' to install the dependencies, then run 'node index.js' to get started. Once you have answered all the prompts, the generated README file will be in the 'output' folder.
 
 ## Credits
 
